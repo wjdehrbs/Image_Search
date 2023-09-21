@@ -20,12 +20,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initViewPager() {
-        //ViewPager2 Adapter 셋팅
         var viewPager2Adatper = ViewPager2Adapter(this)
         viewPager2Adatper.addFragment(SearchFragment())
         viewPager2Adatper.addFragment(LockerFragment())
 
-        //Adapter 연결
         binding.vpViewpagerMain.apply {
             adapter = viewPager2Adatper
 
@@ -36,12 +34,11 @@ class MainActivity : AppCompatActivity() {
             })
         }
 
-        //ViewPager, TabLayout 연결
         TabLayoutMediator(binding.tlNavigationView, binding.vpViewpagerMain) { tab, position ->
             Log.e("YMC", "ViewPager position: ${position}")
             when (position) {
-                0 -> tab.text = "Tab1"
-                1 -> tab.text = "Tab2"
+                0 -> tab.text = "검색결과"
+                1 -> tab.text = "보관함"
             }
         }.attach()
     }

@@ -8,15 +8,20 @@ import android.view.ViewGroup
 import com.example.search.databinding.FragmentLockerBinding
 
 
-class LockerFragment : Fragment() {    private var _binding: FragmentLockerBinding? = null
-private val binding get() = _binding!!
+class LockerFragment : Fragment() {
+    private var _binding: FragmentLockerBinding? = null
+    private val binding get() = _binding!!
 
-override fun onCreate(savedInstanceState: Bundle?) {
-    super.onCreate(savedInstanceState)
-}
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+    }
 
-override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?, ): View? {
-    _binding = FragmentLockerBinding.inflate(inflater, container, false)
-    return binding.root
-}
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
+    ): View? {
+        _binding = FragmentLockerBinding.inflate(inflater, container, false)
+        return binding.root
+    }
 }
