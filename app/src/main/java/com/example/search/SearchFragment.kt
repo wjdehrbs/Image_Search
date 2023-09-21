@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
+import com.example.search.data.Preference
 import com.example.search.data.RetrofitClass
 import com.example.search.data.SearchItemData
 import com.example.search.data.SearchModel
@@ -38,6 +39,10 @@ class SearchFragment : Fragment() {
         val searchButton = binding.searchButton
         val searchEditText = binding.searchEditText
 
+        // 이전 검색어 불러오기
+        val lastSearchQuery = Preference.getLastSearch(requireContext())
+        searchEditText.setText(lastSearchQuery)
+
         searchButton.setOnClickListener {
             val query = searchEditText.text.toString()
             performImageSearch(query)
@@ -59,8 +64,12 @@ class SearchFragment : Fragment() {
                         rvAdapter.items.clear()
                         rvAdapter.items.addAll(mapSearchResultsToItems(searchResults))
                         rvAdapter.notifyDataSetChanged()
+
+                        // 검색어 저장
+                        Preference.saveLastSearch(requireContext(), query)
                     }
                 } else {
+                    // 처리 실패 시
                 }
             }
 

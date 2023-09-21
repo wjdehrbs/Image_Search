@@ -21,5 +21,9 @@ interface SearchInterface {
 class Constants {
     companion object{
         const val AUTH_HEADER = "KakaoAK 0035c0f3b5a53a1b1b228c4d8b070133"
+
+        const val PREFS_NAME = "com.example.search.data.prefs"
+
+        const val PREF_KEY = "IMAGE_SEARCH_PREF"
     }
 }

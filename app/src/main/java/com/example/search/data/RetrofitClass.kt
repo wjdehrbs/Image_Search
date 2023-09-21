@@ -36,4 +36,5 @@ object RetrofitClass {
     val api: SearchInterface by lazy {
         retrofit.create(SearchInterface::class.java)
     }
+
 }
